@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2025 a las 18:42:48
+-- Tiempo de generación: 02-12-2025 a las 19:23:57
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -121,7 +121,8 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`id_medico`, `nombre`, `apellidos`, `especialidad_id`, `email`, `telefono`) VALUES
-(1, 'pepe', 'benitez', 7, 'ejemplo@gmail.com', '698218922');
+(1, 'pepe', 'benitez', 7, 'ejemplo@gmail.com', '698218922'),
+(2, 'Ramon', 'Cajal', 1, 'ramon@gmail.com', '123456789');
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,8 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`id_paciente`, `nombre`, `apellidos`, `fecha_nacimiento`, `direccion`, `telefono`, `email`, `afecciones`, `fecha_registro`) VALUES
-(1, 'Ines', 'Benitez', '2000-06-24', 'Avenida de Andalucia 123 2B', '+34 633603301', 'inesmariabp4@gmail.com', 'Alergia genérica al polem', '2025-11-25 12:31:51');
+(1, 'Ines', 'Benitez', '2000-06-24', 'Avenida de Andalucia 123 2B', '+34 633603301', 'inesmariabp4@gmail.com', 'Alergia genérica al polem', '2025-11-25 12:31:51'),
+(2, 'Juan', 'Alarcon de Corcon', '1990-11-21', '18230', '698825632', 'juan.alarcon@gmail.com', 'Tengo alergia a los olivos.', '2025-12-02 09:12:46');
 
 -- --------------------------------------------------------
 
@@ -181,17 +183,20 @@ CREATE TABLE `usuario` (
   `password_hash` varchar(255) NOT NULL,
   `rol` enum('admin','medico','paciente') DEFAULT NULL,
   `medico_id` int(11) DEFAULT NULL,
-  `paciente_id` int(11) DEFAULT NULL
+  `paciente_id` int(11) DEFAULT NULL,
+  `estado` enum('activo','pendiente','deshabilitado') NOT NULL DEFAULT 'pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `DNI`, `password_hash`, `rol`, `medico_id`, `paciente_id`) VALUES
-(1, '76594964L', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin', NULL, NULL),
-(2, '11111111H', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'medico', 1, NULL),
-(3, '88548192K', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'paciente', NULL, 1);
+INSERT INTO `usuario` (`id_usuario`, `DNI`, `password_hash`, `rol`, `medico_id`, `paciente_id`, `estado`) VALUES
+(1, '76594964L', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin', NULL, NULL, 'activo'),
+(2, '11111111H', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'medico', 1, NULL, 'activo'),
+(3, '88548192K', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'paciente', NULL, 1, 'activo'),
+(4, '12345678H', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'paciente', NULL, 2, 'activo'),
+(5, '123456789H', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'medico', 2, NULL, 'pendiente');
 
 --
 -- Índices para tablas volcadas
@@ -274,13 +279,13 @@ ALTER TABLE `especialidad`
 -- AUTO_INCREMENT de la tabla `medico`
 --
 ALTER TABLE `medico`
-  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `recetas`
@@ -292,7 +297,7 @@ ALTER TABLE `recetas`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
