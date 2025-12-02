@@ -32,18 +32,17 @@ services:
 
   # Servicio 3: Base de Datos (MySQL)
   db:
-    image: mysql:8.0
+    image: mariadb:10.6  # Mucho mejor rendimiento en Raspberry Pi
     container_name: hospital_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: hospital_db  # IMPORTANTE: Que coincida con tu código PHP
+      MYSQL_DATABASE: hospital_db
       MYSQL_USER: usuario_hospital
       MYSQL_PASSWORD: password123
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      # ESTA ES LA LÍNEA NUEVA MÁGICA:
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
