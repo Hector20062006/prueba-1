@@ -1,7 +1,7 @@
 <?php
-session_start();
 include("header.php");
 include("conexion_db.php");
+session_start();
 if (!isset($_SESSION['rol']) || ($_SESSION['rol'] != 'admin' && $_SESSION['rol'] != 'medico')) {
     header("Location: user_login.php");
     exit();

@@ -1,7 +1,7 @@
 <?php
-session_start();
 include 'conexion_db.php';
 include 'admin_header.php';
+session_start();
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
     header("Location: user_login.php");
     exit();

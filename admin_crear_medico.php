@@ -1,9 +1,10 @@
 <?php
-session_start();
 include("header.php");
 include("conexion_db.php");
 ?>
 <?php
+session_start();
+
 // Si no existe la sesión, volvemos al panel
 if (!isset($_SESSION['pending_new_user'])) {
     header("Location: admin.php");

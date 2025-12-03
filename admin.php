@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("admin_header.php");
 include("admin_logic.php");
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {

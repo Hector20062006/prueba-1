@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("conexion_db.php");
 
 // Solo accesible para administradores

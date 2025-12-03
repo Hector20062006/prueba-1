@@ -1,8 +1,8 @@
 <?php
-$servidor = "192.168.2.11:3306";
-$usuario = "usuario_hospital";
-$password = "password123";
-$base_datos= "hospital_db";
+$servidor = "127.0.0.1:3306";
+$usuario = "root";
+$password = "";
+$base_datos= "hospital";
 
 $conexion=new mysqli($servidor,$usuario,$password, $base_datos);
 ?>

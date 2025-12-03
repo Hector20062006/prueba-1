@@ -1,6 +1,4 @@
-<?php 
-session_start();
-include("conexion_db.php"); ?>
+<?php include("conexion_db.php"); ?>
 <?php 
     $DNI = $_POST['DNI'];
     $password = $_POST['password'];
@@ -22,6 +20,7 @@ include("conexion_db.php"); ?>
             exit();
         }
 
+        session_start();
         $_SESSION['DNI'] = $usuario['DNI'];
         $_SESSION['rol'] = $usuario['rol'];
         $_SESSION['medico_id'] = $usuario['medico_id'];
