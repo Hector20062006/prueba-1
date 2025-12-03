@@ -49,22 +49,22 @@ include("conexion_db.php");
             <hr>
 
             <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+            <input type="text" name="nombre" required maxlength="9">
 
             <label>Apellidos:</label>
-            <input type="text" name="apellidos" required>
+            <input type="text" name="apellidos" required maxlength="30">
 
             <label>Fecha de Nacimiento:</label>
             <input type="date" name="fecha_nacimiento" required>
 
             <label>Email:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" required maxlength="30">
 
             <label>Teléfono:</label>
-            <input type="tel" name="telefono" required>
+            <input type="tel" name="telefono" required maxlength="15">
 
             <label>Dirección:</label>
-            <input type="text" name="direccion">
+            <input type="text" name="direccion" required maxlength="40">
 
             <label>Afecciones / Alergias:</label>
             <textarea name="afecciones"></textarea>
@@ -85,21 +85,21 @@ include("conexion_db.php");
             <input type="hidden" name="rol" value="medico">
 
             <label>DNI:</label>
-            <input type="text" name="dni" required>
+            <input type="text" name="dni" required maxlength="9">
 
             <label>Contraseña:</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" required maxlength="20">
 
             <hr>
 
             <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+            <input type="text" name="nombre" required mazlength="20">
 
             <label>Apellidos:</label>
-            <input type="text" name="apellidos" required>
+            <input type="text" name="apellidos" required maxlength="30">
 
             <label>Especialidad:</label>
-            <select name="especialidad" required>
+            <select name="especialidad" required maxlength="30">
                 <option value="">-- Seleccione --</option>
                 <?php
                 $q_esp = mysqli_query($conexion, "SELECT * FROM especialidad ORDER BY nombre");
@@ -110,10 +110,10 @@ include("conexion_db.php");
             </select>
 
             <label>Email:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" required maxlength="30">
 
             <label>Teléfono:</label>
-            <input type="tel" name="telefono" required>
+            <input type="tel" name="telefono" required maxlength="9">
 
             <input type="submit" name="registro_medico" value="Enviar Solicitud">
             
