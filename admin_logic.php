@@ -1,12 +1,5 @@
 <?php
-session_start();
 include("conexion_db.php");
-
-// Solo accesible para administradores
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
-    header("Location: user_login.php");
-    exit();
-}
 
 // --- CREAR USUARIO NUEVO ---
 if (isset($_POST['crear'])) {
