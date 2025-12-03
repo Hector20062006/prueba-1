@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include("conexion_db.php");
 include("paciente_header.php");
