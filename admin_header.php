@@ -12,8 +12,6 @@
         <a href="admin.php">Administracion de Usuarios y Medicos</a>
         <a href="admin_especialidades.php">Administracion de Especialidades</a>
         <a href="admin_citas.php">Administracion de Citas Medicas y Consultas</a>
-
-
         <a href="logout.php">Cerrar Sesion</a>
     </nav>
     <main>
